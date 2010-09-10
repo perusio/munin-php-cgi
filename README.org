@@ -25,4 +25,4 @@
 
 ** Requirements
 
-   Perl and the POSIX module.
+   Perl with the POSIX module.
