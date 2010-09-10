@@ -1,0 +1,28 @@
+* Munin plugin for PHP FastCGI Memory Usage 
+
+** Introduction
+   
+   This is a simple plugin to show how much memory (virtual size as
+   reported by =ps=) the PHP FastCGI processes are using. It reports
+   also the number of processes. That value is specified as an
+   environment variable to the =php-cgi= program =PHP_FCGI_CHILDREN=,
+   usually set in the startup (init) script that launches the FastCGI
+   daemon.
+
+   Although the number of processes is show in the graph, it's more or
+   less useless since the memory usage uses a 100s (MB) or 1000s scale
+   (GB), hence dwarfing the processes value. Nevertheless the average,
+   maximum and minimum values are shown below the graph, thus
+   providing useful information. I don't think that a separate graph
+   makes much sense. After all, the value of =PHP_FCGI_CHILDREN=
+   defines its upper limit. 
+
+** Installation
+
+   Copy the php_fcgi file to the =/etc/munin/plugins= directory. Try
+   it with =munin-run php_fcgi=. It should report the memory and
+   number of processes.
+
+** Requirements
+
+   Perl and the POSIX module.
